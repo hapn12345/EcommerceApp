@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/login_img"
+        android:cropToPadding="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset PassWord"
+        android:textSize="@dimen/headerTextSize"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/parent.TextLayout"
+        android:id="@+id/textInputLayout"
+        android:layout_marginTop="5dp">
+        <EditText
+            style="@style/modifiedEditText"
+            android:id="@+id/edt_resetPass"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:maxLines="1"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/btnColor"
+        android:text="Reset Password"
+        android:textColor="@color/colorLoginPrimaryDark"
+    />
+</LinearLayout>
