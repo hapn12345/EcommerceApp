@@ -8,7 +8,17 @@ public class LoginResponse {
     String email;
     @SerializedName("password")
     String password;
-    public LoginResponse (String email,String password){
+    String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LoginResponse (String email, String password){
         this.email = email;
         this.password = password;
     }

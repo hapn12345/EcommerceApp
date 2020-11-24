@@ -12,6 +12,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/samples" />
+            <option value="$PROJECT_DIR$/samples/FBLoginSample" />
+            <option value="$PROJECT_DIR$/samples/HelloFacebookSample" />
+            <option value="$PROJECT_DIR$/samples/MessengerSendSample" />
+            <option value="$PROJECT_DIR$/samples/RPSSample" />
+            <option value="$PROJECT_DIR$/samples/ShareIt" />
+            <option value="$PROJECT_DIR$/samples/SwitchUserSample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

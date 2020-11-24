@@ -16,14 +16,16 @@
         android:usesCleartextTraffic="true"
         >
 
-        <activity android:name=".Customer.ResetActivity">
+        <activity android:name=".Activities.ResetActivity"
+                  android:theme="@style/AppThemNoActionBar">
         </activity>
 
-        <activity android:name=".Customer.RegisterActivity" >
-
+        <activity android:name=".Activities.RegisterActivity"
+                  android:theme="@style/AppThemNoActionBar">
         </activity>
+
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activities.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,8 +34,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Customer.LoginActivity"
-            android:parentActivityName=".SplashScreen"
+            android:name=".Activities.LoginActivity"
+            android:parentActivityName=".Activities.SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +61,7 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".Activities.MainActivity"
             android:theme="@style/AppThemNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

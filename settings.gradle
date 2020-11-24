@@ -1,2 +1,8 @@
+include ':samples:HelloFacebookSample'
+include ':samples:MessengerSendSample'
+include ':samples:FBLoginSample'
+include ':samples:RPSSample'
+include ':samples:ShareIt'
+include ':samples:SwitchUserSample'
 include ':app'
 rootProject.name = "EcommerceApp"

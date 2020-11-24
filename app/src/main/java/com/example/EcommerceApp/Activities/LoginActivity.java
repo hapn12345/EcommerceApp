@@ -1,4 +1,4 @@
-package com.example.EcommerceApp.Customer;
+package com.example.EcommerceApp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,18 +13,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.EcommerceApp.MainActivity;
+import com.example.EcommerceApp.Fragments.ProfileFragment;
 import com.example.EcommerceApp.Model.LoginResponse;
 import com.example.EcommerceApp.Service.RestClient;
 import com.example.EcommerceApp.Service.RestMethods;
 import com.example.EcommerceApp.R;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+import com.example.EcommerceApp.Service.SharedPref;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,9 +44,6 @@ public class LoginActivity extends AppCompatActivity{
     private Button btn_login;
     private TextInputLayout textInputLayout,text_input_password_toggle;
     private ProgressBar progress_;
-    //private LoginButton loginButton;
-    //private CallbackManager callbackManager;
-
 
     RestMethods restMethods;
 
@@ -97,6 +94,12 @@ public class LoginActivity extends AppCompatActivity{
     private void doLogin(){
         String email = editTextMail.getText().toString();
         String password = editTextPassWord.getText().toString();
+
+//        Bundle bundle = new Bundle();
+//        bundle.putString("message", email);
+//        ProfileFragment fragInfo = new ProfileFragment();
+//        fragInfo.setArguments(bundle);
+
         if (TextUtils.isEmpty(editTextMail.getText().toString())) {
             textInputLayout.setError("No Email Provided!");
             return;
@@ -138,27 +141,9 @@ public class LoginActivity extends AppCompatActivity{
     }
     public void showLoading(){
         progress_.setVisibility(View.VISIBLE);
-    }public void HideLoading(){
+    }
+    public void HideLoading(){
         progress_.setVisibility(View.GONE);
     }
-//    public void facebookLogin(){
-//        callbackManager = new CallbackManager.Factory().create();
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                Intent i = new Intent(LoginActivity.this,MainActivity.class);
-//                startActivity(i);
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//
-//            }
-//        });
-//    }
 
 }
