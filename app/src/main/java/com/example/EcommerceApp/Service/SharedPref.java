@@ -18,9 +18,13 @@ public class SharedPref {
 
     public static Context mCtx;
 
+    private SharedPreferences sharedPreferences;
+
+
 
     public SharedPref(Context context) {
         mCtx = context;
+        sharedPreferences = context.getSharedPreferences("abc",context.MODE_PRIVATE);
     }
 
 
@@ -62,6 +66,18 @@ public class SharedPref {
         editor.clear();
         editor.commit();
         mCtx.startActivity(new Intent(mCtx, MainActivity.class));
+    }
+
+    public void saveToken(String accesToken) {
+        sharedPreferences.edit().putString("token", accesToken).apply();
+    }
+
+    public String getToken() {
+        return sharedPreferences.getString("token", null);
+    }
+
+    public void clearToken() {
+        sharedPreferences.edit().remove("token").apply();
     }
 
 }

@@ -16,7 +16,7 @@
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HOME"
+            android:text="Home"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:textColor="@color/colorBlack"

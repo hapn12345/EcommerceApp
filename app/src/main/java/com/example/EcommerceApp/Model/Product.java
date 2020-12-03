@@ -1,4 +1,5 @@
 package com.example.EcommerceApp.Model;
+import java.lang.reflect.Method;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,21 +14,32 @@ public class Product {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("imageUrl")
+
+    public void setMedia(Media media) {
+        this.media = media;
+    }
+
+    @SerializedName("media")
     @Expose
-    private String imageUrl;
+    private Media media;
     @SerializedName("description")
     @Expose
     private String description;
     @SerializedName("price")
     @Expose
-    private int price;
-    public Product(int id, int categoryID, String name, String imageUrl, String description, int price) {
+    private String price;
+    public Product(int id, int categoryID, String name, Media media, String description, String price) {
         this.id = id;
         this.categoryID = categoryID;
         this.name = name;
-        this.imageUrl = imageUrl;
+        this.media = media;
         this.description = description;
+        this.price = price;
+    }
+
+    public Product( String name, Media media, String price) {
+        this.name = name;
+        this.media = media;
         this.price = price;
     }
 
@@ -55,12 +67,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public Media getMedia() {
+        return media;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void getMedia(Media media) {
+        this.media = media;
     }
 
     public String getDescription() {
@@ -71,11 +83,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

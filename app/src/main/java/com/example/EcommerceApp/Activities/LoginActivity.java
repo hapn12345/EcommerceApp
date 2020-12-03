@@ -2,6 +2,7 @@ package com.example.EcommerceApp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,7 +37,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity{
-
+    Context context;
+    public static final String MyPREFERENCES = "myprefs";
     private String TAG = LoginActivity.class.getSimpleName();
 
     private EditText editTextMail, editTextPassWord;
@@ -114,17 +116,20 @@ public class LoginActivity extends AppCompatActivity{
         }
         showLoading();
         LoginResponse loginResponse = new LoginResponse(email,password);
-        restMethods.login(loginResponse).enqueue(new Callback<ResponseBody>() {
+        restMethods.login(loginResponse).enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 Intent i = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(i);
-                Log.i(TAG, "Response: " + response.body());
+//                SharedPref prefManager = new SharedPref("myprefs",context);
+                String token = response.body().getToken();
+//                prefManager.saveToken(token);
+                Log.i(TAG, "Response: " + response.body().getToken());
                 HideLoading();
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
                 t.printStackTrace();
                 Log.e(TAG, "Response: " + t.getMessage());
                 HideLoading();

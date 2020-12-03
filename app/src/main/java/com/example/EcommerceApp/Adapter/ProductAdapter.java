@@ -1,6 +1,7 @@
 package com.example.EcommerceApp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,22 +11,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.EcommerceApp.Activities.ActivityProductDetail;
+import com.example.EcommerceApp.Model.Media;
 import com.example.EcommerceApp.Model.Product;
 import com.example.EcommerceApp.R;
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+    Media media;
+    Product product;
     private Context context;
     private ArrayList<Product> arraySanpham;
     private ContactsAdapterListener listener;
 
-    public ProductAdapter(Context context, ArrayList<Product> arraySanpham,ContactsAdapterListener listener) {
+    public ProductAdapter(Context context, ArrayList<Product> arraySanpham) {
         this.context = context;
         this.arraySanpham = arraySanpham;
-        this.listener = listener;
     }
 
     @NonNull
@@ -36,20 +42,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         return new ViewHolder(itemView) ;
     }
-    // set get thuoc tinh tu product -> layout
+    // set thuoc tinh tu product -> layout
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = arraySanpham.get(position);
-        Picasso.with(context).load(product.getImageUrl())
+        String url = product.getMedia().getUrl();
+
+        Transformation transformation = new RoundedTransformationBuilder()
+                .cornerRadiusDp(10)
+                .oval(false)
+                .build();
+
+        Picasso.with(context).load(url)
                 .fit()
                 .centerInside()
-                .placeholder(R.drawable.icon_fb)
+                .placeholder(R.color.colorLoginPrimaryDark)
                 .error(R.drawable.error_img)
+                .transform(transformation)
                 .into(holder.img_product);
         holder.txt_name_product.setText(product.getName());
-        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        holder.txt_price.setText("Giá: " + decimalFormat.format(product.getPrice())+ "Đ");
-
+        holder.txt_price.setText(currencyFormatter(product.getPrice())+ " Đ");
     }
 
     @Override
@@ -66,9 +78,27 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             img_product = itemView.findViewById(R.id.img_product);
             txt_name_product = itemView.findViewById(R.id.txt_name_product);
             txt_price = itemView.findViewById(R.id.txt_price);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ActivityProductDetail.class);
+//                    intent.putExtra("ID", product.getId());
+//                    intent.putExtra("name", product.getName());
+//                    intent.putExtra("imageURL", product.getImageUrl());
+//                    intent.putExtra("price", product.getPrice());
+//                    intent.putExtra("description", product.getDescription());
+//                    intent.putExtra("categoryId", product.getCategoryID());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
     public interface ContactsAdapterListener {
         void onContactSelected(Product product);
+    }
+    public String currencyFormatter(String num) {
+        double m = Double.parseDouble(num);
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format(m);
     }
 }

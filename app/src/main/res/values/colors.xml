@@ -6,13 +6,15 @@
     <color name="colorSplash">#2E93EC</color>
     <color name="colorBlack">#000</color>
     <color name="btnColor">#FF1944F8</color>
-    <color name="ripple_color">#dfdfdf</color>
+    <color name="background_recycler_view">#FDFFFF</color>
     <color name="separator">#efefef</color>
 
-
+    <color name="txt_price_color">#0AAC3A</color>
     <color name="colorGray1">#e4e4e4</color>
     <color name="colorLoginPrimaryDark">#FDFFFF</color>
     <color name="colorOrange">#ef6c00</color>
+    <color name="hint">#767676</color>
+
 
 
 </resources>

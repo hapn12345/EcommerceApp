@@ -61,7 +61,7 @@
             android:layout_alignParentRight="true"
             android:padding="10dp"
             app:mrl_rippleAlpha="0.2"
-            app:mrl_rippleColor="@color/ripple_color"
+            app:mrl_rippleColor="@color/background_recycler_view"
             app:mrl_rippleHover="true"
             app:mrl_rippleOverlay="true">
 
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/ripple_color"
+        app:mrl_rippleColor="@color/background_recycler_view"
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true">
 
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/ripple_color"
+        app:mrl_rippleColor="@color/background_recycler_view"
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true">
 
@@ -152,7 +152,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/ripple_color"
+        app:mrl_rippleColor="@color/background_recycler_view"
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true">
 
@@ -186,7 +186,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/ripple_color"
+        app:mrl_rippleColor="@color/background_recycler_view"
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true">
 
@@ -219,7 +219,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/ripple_color"
+        app:mrl_rippleColor="@color/background_recycler_view"
         app:mrl_rippleHover="true"
         app:mrl_rippleOverlay="true"
         >

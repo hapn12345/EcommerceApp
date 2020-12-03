@@ -52,6 +52,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     //library load image
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
     //Retrofit & OkHttp for HTTP Calls
     implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
@@ -59,6 +60,13 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
     compile 'com.balysv:material-ripple:1.0.2'
+    //viewpager
+    implementation 'me.relex:circleindicator:2.1.4'
+    //search View
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+
+
+
 
 
     //facebook
