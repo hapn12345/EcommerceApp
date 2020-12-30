@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -38,7 +39,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity{
     Context context;
-    public static final String MyPREFERENCES = "myprefs";
+    public SharedPreferences.Editor loginPrefEditor;
     private String TAG = LoginActivity.class.getSimpleName();
 
     private EditText editTextMail, editTextPassWord;
@@ -92,10 +93,12 @@ public class LoginActivity extends AppCompatActivity{
                 doLogin();
             }
         });
+
     }
     private void doLogin(){
         String email = editTextMail.getText().toString();
         String password = editTextPassWord.getText().toString();
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJvbGdhbmljb2xhczRAeHl6LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkN1c3RvbWVyIiwianRpIjoiYjA4NGQ5OTctNWZhMi00Y2MxLWJhNmQtZTU3ZTEyM2MyM2JiIiwiZXhwIjoxNjA3NDI5MDE1LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvIn0.lLsmV5JPJULwjoufd9AO7mSEOJ40on4DktviKCdCqxw";
 
 //        Bundle bundle = new Bundle();
 //        bundle.putString("message", email);
@@ -115,16 +118,27 @@ public class LoginActivity extends AppCompatActivity{
             return;
         }
         showLoading();
-        LoginResponse loginResponse = new LoginResponse(email,password);
-        restMethods.login(loginResponse).enqueue(new Callback<LoginResponse>() {
+        LoginResponse loginResponse = new LoginResponse(token,email,password);
+        restMethods.login("Bearer "+token,loginResponse).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(i);
+                if(response.isSuccessful()){
+                    response.body();
+                    String token = response.body().getToken();
+                    SharedPreferences preferences = getApplication().getSharedPreferences("MY_APP",Context.MODE_PRIVATE);
+                    preferences.edit().putString("TOKEN",token).apply();
+
+                    Log.e(TAG, "Response: " + response.body().getToken());
+                    Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(i);
+
+
+                }
+
 //                SharedPref prefManager = new SharedPref("myprefs",context);
-                String token = response.body().getToken();
 //                prefManager.saveToken(token);
-                Log.i(TAG, "Response: " + response.body().getToken());
+
+//                Log.i(TAG, "Response: " + response.body());
                 HideLoading();
             }
 

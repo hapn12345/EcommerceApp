@@ -29,9 +29,10 @@ public class LoginResponse {
         this.id = id;
     }
 
-    public LoginResponse (String email, String password){
+    public LoginResponse (String token,String email, String password){
         this.email = email;
         this.password = password;
+        this.token = token;
     }
 
     public String getEmail() {

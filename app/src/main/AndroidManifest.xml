@@ -14,17 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.CheckoutActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-        <activity android:name=".Activities.ActivityProductDetail"
-                  android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activities.CartActivity"></activity>
+        <activity android:name=".Activities.ActivityProduct" />
+        <activity android:name=".Activities.CheckoutActivity" />
+        <activity
+            android:name=".Activities.ActivityProductDetail"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.ResetActivity"
-            android:theme="@style/AppThemNoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.RegisterActivity"
-            android:theme="@style/AppThemNoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">

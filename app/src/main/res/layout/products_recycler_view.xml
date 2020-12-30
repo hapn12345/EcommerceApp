@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="39000 Đ"
-                android:textColor="@color/txt_price_color"
+                android:textColor="@color/colorSplash"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

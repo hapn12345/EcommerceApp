@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLoginPrimaryDark"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_shopping_cart_black"
+        app:tint="@color/colorSplash" />
+
+    <TextView
+        android:id="@+id/no_item_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Không có sản sẩm nào trong giỏ"
+        android:textSize="18sp" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorSplash"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="@color/colorLoginPrimaryDark"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:text="Tiếp tục mua hàng"
+            android:textColor="@color/colorLoginPrimaryDark"
+            android:textStyle="bold" />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</LinearLayout>

@@ -14,11 +14,6 @@ public class Product {
     @SerializedName("name")
     @Expose
     private String name;
-
-    public void setMedia(Media media) {
-        this.media = media;
-    }
-
     @SerializedName("media")
     @Expose
     private Media media;
@@ -71,7 +66,7 @@ public class Product {
         return media;
     }
 
-    public void getMedia(Media media) {
+    public void setMedia(Media media) {
         this.media = media;
     }
 

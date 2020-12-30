@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLoginPrimaryDark">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:id="@+id/a"
+        android:layout_alignParentTop="true">
+        <Toolbar android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSplash">
+        </Toolbar>
 
-    <ScrollView
+    </RelativeLayout>
+        <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/lyt_checkout"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/a"
         android:fadeScrollbars="true"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        tools:ignore="NotSibling">
 
         <LinearLayout
             android:id="@+id/lytContent"
@@ -36,6 +42,7 @@
 
                 <EditText
                     android:id="@+id/edt_name"
+                    style="@style/modifiedEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -50,6 +57,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -60,7 +68,6 @@
                     android:layout_margin="10dp"
                     android:layout_marginBottom="10dp"
                     android:hint="Your Email"
-                    android:textColorHint="@color/colorBlack"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:padding="10dp"
@@ -104,7 +111,8 @@
                     android:gravity="top"
                     android:hint="Address"
                     android:lines="3"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    >
 
                 </EditText>
 
@@ -112,15 +120,18 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorBlack">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingBottom="18dp">
 
                     <TextView
+                        android:textColorHint="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="18dp"
@@ -189,7 +200,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone">
+                android:visibility="gone"
+                android:textColorHint="@color/colorBlack">
 
                 <EditText
                     android:id="@+id/edt_order_total"
@@ -227,7 +239,6 @@
         </LinearLayout>
 
     </ScrollView>
-
     <RelativeLayout
         android:id="@+id/lyt_checkout"
         android:layout_width="match_parent"
@@ -257,5 +268,7 @@
         </com.balysv.materialripple.MaterialRippleLayout>
 
     </RelativeLayout>
+
+
 
 </RelativeLayout>

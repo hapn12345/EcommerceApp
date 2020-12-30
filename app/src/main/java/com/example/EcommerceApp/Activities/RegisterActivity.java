@@ -100,11 +100,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
     }
 
     public boolean isValidEmail(String email) {

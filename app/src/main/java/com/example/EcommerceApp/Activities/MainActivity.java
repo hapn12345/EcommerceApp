@@ -7,13 +7,11 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.EcommerceApp.Fragments.Categories_fragment;
-import com.example.EcommerceApp.Fragments.HelpFragment;
+import com.example.EcommerceApp.Fragments.WishLishFragment;
 import com.example.EcommerceApp.Fragments.HomeFragment;
 import com.example.EcommerceApp.Fragments.ProfileFragment;
 import com.example.EcommerceApp.R;
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         titleTv = findViewById(R.id.titleTv);
-        cart = findViewById(R.id.cart);
+        //cart = findViewById(R.id.cart);
         bottom_navigate = findViewById(R.id.bottom_navigate);
 
         initFragments();
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void initFragments() {
         homeFragment = new HomeFragment();
         categoriesFragment = new Categories_fragment();
-        helpFragment = new HelpFragment();
+        helpFragment = new WishLishFragment();
         profileFragment = new ProfileFragment();
 
         fragmentManager = getSupportFragmentManager();

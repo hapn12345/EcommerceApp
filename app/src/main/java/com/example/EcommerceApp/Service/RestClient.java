@@ -24,7 +24,7 @@ public class RestClient {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest  = chain.request().newBuilder()
-                        .addHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJvbGdhbmljb2xhczRAeHl6LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkN1c3RvbWVyIiwianRpIjoiYjA4NGQ5OTctNWZhMi00Y2MxLWJhNmQtZTU3ZTEyM2MyM2JiIiwiZXhwIjoxNjA3NDI5MDE1LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvIn0.lLsmV5JPJULwjoufd9AO7mSEOJ40on4DktviKCdCqxw")
+                        .addHeader("Authorization",  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJvbGdhbmljb2xhczRAeHl6LmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkN1c3RvbWVyIiwianRpIjoiYjA4NGQ5OTctNWZhMi00Y2MxLWJhNmQtZTU3ZTEyM2MyM2JiIiwiZXhwIjoxNjA3NDI5MDE1LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEvIn0.lLsmV5JPJULwjoufd9AO7mSEOJ40on4DktviKCdCqxw")
                         .build();
                 return chain.proceed(newRequest);
             }
@@ -33,9 +33,9 @@ public class RestClient {
                 .setLenient()
                 .create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://3.25.210.151/api/")
-                .client(getClient())
+                .baseUrl("https://7a577d781a6a.ngrok.io/api/")
                 .client(client)
+                .client(getClient())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
